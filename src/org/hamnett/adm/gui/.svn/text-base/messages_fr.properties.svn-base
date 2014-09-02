@@ -1,0 +1,11 @@
+SystemTray.error.no_system_tray=Impossible de trouver la barre système (systray)
+
+PreferencesAction.label=&Editer courante
+
+ConfigurationsAction.label=&Configurations
+ConfigurationsAddAction.label=&Ajouter nouvelle
+ConfigurationsRemoveAction.label=&Supprimer courante
+
+QuitAction.label=&Quitter
+
+AboutAction.label=&A propos

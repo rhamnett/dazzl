@@ -1,0 +1,12 @@
+firstTime.title=Première exécution
+firstTime.message=Afin d'utiliser ADM, vous devez configurer certains paramètres.
+
+depsNotSatisfied.error=Les dépendances de certains fonctionnalités n'ont pas pu être satisfaites.\nVeuillez vérifier le fichier plugins.xml
+
+invalidPluginDefinition.error=Définition de plugin invalide.\nVeuillez vérifier le fichier plugins.xml.
+
+deletingLastConfiguration.title=Suppression de configuration
+deletingLastConfiguration.message=Impossible de supprimer la dernière configuration restante.
+
+updateAvailable.title=Mise à jour disponible.
+updateAvailable.message=Une nouvelle version d'ADM est disponible. Connectez-vous à http://adm.hamnett.org

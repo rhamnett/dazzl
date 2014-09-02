@@ -1,0 +1,81 @@
+* indicates things to do before initial relase
+
+Asterisk
+- MWI: flashing tray icon, changing icon on new voicemail
+- Agent login/logoff/away (see pending Asterisk patch at
+  http://bugs.digium.com/view.php?id=4766 about required
+  Manager API actions)
+
+GUI
+- Splash screen
+- Quick Dial
+	nice dialog, clipboard integration - with custom regex
+- Popup on incoming call when cisco is enabled - with button to answer call (drop to speakerphone)
+  (possibly use Azureus' slide in popup code?)*
+- Preferences Wizard*
+	at startup when no config is found
+
+Audio
+- none
+
+Bluetooth
+- "Follow me" call redirecting, using either: bluetooth "LinkQuality" to ring different
+  phones as you move around the building.... or to ring the house phone, then when you
+  arrive at the office, make the office phone accept the house phone (if you set it)
+- Device Monitoring*
+	monitor presence of a device and switch to redirect
+	mode (redirect any calls to our phones to another number)
+	if its no longer available
+- Device Listing
+	list all devices to allow user to select which one to
+	monitor (long term - multiple phone1 left -> number1, or phone2 left -> number2)
+
+Phonebook
+- Last Calls*
+	record last incoming (missed and answered) and outgoing
+	calls with corresponding number and time and allow the
+	user to redial
+- External Data Integration
+	allow import of phonebooks from other sources (flat file,
+	LDAP, database,...)
+
+Cisco
+- Allow enable DND (can this be done in asterisk instead?)*
+
+Idle
+- Detect idle activity -> redirect*
+
+Console
+- Asterisk Manager console viewer*
+- Input raw commands*
+
+IM Clients
+- MSN (and other clients) on-phone/away status
+
+Enterprise Edition
+- central configuration/provisioning incl. user management
+- central asterisk access (i.e. no direct access to AMI from ADM)
+- LDAP phonebook support
+- Extensions switchboard management
+
+Callcentre Edition
+- Agent control panel:
+    - call duration
+    - caller id
+    - plugin API for automation of customer account details to be loaded from CLI (eg bring up cust name and user/pass)
+    - mode changing (coffe break, lunch etc, after call work) - with scheduler backend
+    - reminder notification popups when lunch break etc has expired and you must log back in
+    - maybe integration of RT ticket system???
+- Agent statistics logging
+- Stats frontend (graphs etc)
+    - calls waiting
+    - avg wait time
+    - longest wait time
+    - total calls answered
+    - agent statuses (agents out of aherence, eg too long on break)
+    - pie charts, etc
+- Automated random call recordings
+- Predictive dialler for outgoing sales calls
+- IVR Creation through GUI, including recording of prompts
+
+

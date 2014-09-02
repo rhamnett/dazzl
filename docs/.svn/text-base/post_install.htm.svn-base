@@ -1,0 +1,17 @@
+<html>
+<head>
+ <title>Usage:</title>
+  <style type="text/css">
+   body{
+	color: #4C4C4C;
+	font-size: 11px;
+	font-family: Trebuchet MS, "Lucida Sans Unicode", Arial, Lucida Sans, Tahoma, Sans-Serif;
+   }
+  </style>
+</head>
+<body>
+<h3>Thanks for installing Asterisk Desktop Manager!</h3>
+<p>We hope you enjoy the application, below are instructions on how to run and use ADM</p>
+<ul><li><p>To start ADM, please run "adm" at the terminal</p></li></ul>
+</body>
+</html>

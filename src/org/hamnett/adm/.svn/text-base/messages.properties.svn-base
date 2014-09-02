@@ -1,0 +1,13 @@
+firstTime.title=First time launch notification
+firstTime.message=In order to use ADM, you will be required to\n enter \
+                  some settings into the preferences.
+
+depsNotSatisfied.error=Plugin dependencies not satisfied.\nPlease check plugins.xml
+
+invalidPluginDefinition.error=Invalid plugin definiton.\nPlease check plugins.xml.
+
+deletingLastConfiguration.title=Removing configuration
+deletingLastConfiguration.message=Can't remove the last configuration left.
+
+updateAvailable.title=Update available
+updateAvailable.message=There is a new version of ADM available!\n\nVisit http://adm.hamnett.org

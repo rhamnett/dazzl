@@ -1,0 +1,230 @@
+/*
+ * This file is part of ADM, the Asterisk Desktop Manager.
+ *
+ * ADM is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * ADM is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ADM; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+package org.hamnett.adm.crm.impl;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.asteriskjava.live.AsteriskChannel;
+import org.asteriskjava.live.AsteriskServer;
+import org.asteriskjava.live.DefaultAsteriskServer;
+import org.asteriskjava.live.ManagerCommunicationException;
+import org.asteriskjava.live.NoSuchChannelException;
+import org.asteriskjava.util.AstUtil;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.preference.PreferenceManager;
+import org.eclipse.jface.preference.PreferenceNode;
+import org.eclipse.jface.util.IPropertyChangeListener;
+import org.eclipse.jface.util.PropertyChangeEvent;
+import org.hamnett.adm.AdmPlugin;
+import org.hamnett.adm.DependencyNotSatisfiedException;
+import org.hamnett.adm.Main;
+import org.hamnett.adm.asterisk.Asterisk;
+import org.hamnett.adm.asterisk.AsteriskCallEvent;
+import org.hamnett.adm.asterisk.CallListener;
+import org.hamnett.adm.asterisk.FilteredCallListener;
+import org.hamnett.adm.asterisk.impl.AsteriskPlugin;
+import org.hamnett.adm.crm.Crm;
+import org.hamnett.adm.crm.CrmBrowserControl;
+import org.hamnett.adm.crm.CrmConfiguration;
+import org.hamnett.adm.crm.Messages;
+import org.hamnett.adm.crm.gui.CrmPreferencePage;
+import org.hamnett.adm.util.ChannelUtils;
+import org.hamnett.adm.util.CommonDialogs;
+
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ * Open a browser window with the user's details (using the callerId in the querystring)
+ */
+public class CrmPlugin implements AdmPlugin, Crm, IPropertyChangeListener, CallListener, Runnable {
+
+    private Asterisk asterisk;
+    private static CrmConfiguration configuration;
+    //TODO
+    private static final String UNKNOWN_NAME = "<unknown>";
+    
+    private final Log logger = LogFactory.getLog(getClass());
+
+
+    public void setAsterisk(Asterisk asterisk) {
+        this.asterisk = asterisk;
+    }
+
+    public void popup() {
+    }
+
+    public CrmPlugin() {
+        configuration = new CrmConfigurationImpl();
+    }
+
+    public void registerPreferenceNodes(PreferenceManager preferenceManager) {
+        String className;
+        className = CrmPreferencePage.class.getName();
+        PreferenceNode crmNode = new PreferenceNode("crm", //$NON-NLS-1$
+                Messages.getString("CrmPreferencePage.title"), null, //$NON-NLS-1$
+                className);
+        preferenceManager.addToRoot(crmNode);
+    }
+
+    public void setConfigurationDefaults(IPreferenceStore store) {
+        store.setDefault(ENABLED_PREFERENCE, false);
+        store.setDefault(SERVER_ADDRESS_PREFERENCE, "");
+        store.setDefault(BROWSER_PATH, "");
+    }
+
+    public void loadConfiguration(IPreferenceStore store) {
+        configuration.setEnabled(store.getBoolean(ENABLED_PREFERENCE));
+        configuration.setServerAddress(store
+                .getString(SERVER_ADDRESS_PREFERENCE));
+        configuration.setBrowserPath(store
+                .getString(BROWSER_PATH));
+    }
+
+    public void propertyChange(PropertyChangeEvent event) {
+        if (ENABLED_PREFERENCE.equals(event.getProperty())) {
+            if (event.getNewValue() != null) {
+                configuration.setEnabled(((Boolean) event.getNewValue())
+                        .booleanValue());
+            } else {
+                configuration.setEnabled(false);
+            }
+        } else if (SERVER_ADDRESS_PREFERENCE.equals(event.getProperty())) {
+            configuration.setServerAddress((String) event.getNewValue());
+        } else if (BROWSER_PATH.equals(event.getProperty())) {
+            configuration.setBrowserPath((String) event.getNewValue());
+        }
+    }
+
+    public List getMenuContributions() {
+        return null;
+    }
+
+    public void startup() throws DependencyNotSatisfiedException {
+        if (asterisk == null) {
+            throw new DependencyNotSatisfiedException(
+                    "CRM Plugin's mandatory depency on " //$NON-NLS-1$
+                            + "CrmPlugin is not satisied."); //$NON-NLS-1$
+        }
+        asterisk.addCallListener(new FilteredCallListener(this));
+    }
+
+    public void shutdown() {
+    }
+
+    /**
+     * Fire up browser window with customer information
+     *
+     * @param call the active call
+     */
+    public void onNewCall(final AsteriskCallEvent call) {
+        if ((reactToChannel(call.getChannel())) && configuration.isEnabled() &&
+                !UNKNOWN_NAME.equals(call.getCallerId())
+                && call.isIncoming()) {
+            Main.getDisplay().asyncExec(new Runnable() {
+                public void run() {
+                    CommonDialogs.showCRMRecord(call);
+                }
+            });
+        }
+
+    }
+
+    public void onHangup(AsteriskCallEvent call) {
+    }
+
+    public void onOriginate(AsteriskCallEvent call) {
+    }
+
+    public void run() {
+    }
+
+    /**
+     * Open the browser to the correct page
+     *
+     * @param call the active call
+     */
+    public static void openRecord(AsteriskCallEvent call) {
+        String number = call.getCallerId();
+        String name = call.getCallerIdName();
+        String customVar = null;
+        DefaultAsteriskServer c = null;
+
+        c = AsteriskPlugin.getDefault().getAsteriskServer();
+   
+        AsteriskChannel chan = null;
+        if(c != null) {
+			try {
+				chan = c.getChannelById(call.getId());
+			} catch (ManagerCommunicationException e) {
+				e.printStackTrace();
+			}
+        }
+        
+		if(chan != null) {
+	        try {
+				customVar = chan.getVariable("ADM");
+			} catch (ManagerCommunicationException e) {
+				e.printStackTrace();
+			} catch (NoSuchChannelException e) {
+				//e.printStackTrace();
+			}
+		}
+
+        if ( AstUtil.isNull(customVar) ) {
+            customVar = "ERROR_CANT_GET_VAR_FROM_ASTERISK";
+        }
+
+        String url = configuration.getServerAddress();
+        String browserPath = configuration.getBrowserPath();
+        Pattern r1;
+        Matcher matchNumber;
+
+        if (url.indexOf("%number%") > 0) {
+            r1 = Pattern.compile("%number%");
+            matchNumber = r1.matcher(url);
+            url = matchNumber.replaceAll(number);
+        }
+
+        if (url.indexOf("%name%") > 0) {
+            r1 = Pattern.compile("%name%");
+            matchNumber = r1.matcher(url);
+            url = matchNumber.replaceAll(name);
+        }
+
+        if (url.indexOf("%custom%") > 0) {
+            r1 = Pattern.compile("%custom%");
+            matchNumber = r1.matcher(url);
+            url = matchNumber.replaceAll(customVar);
+        }
+
+        CrmBrowserControl.displayURL(url,browserPath);
+    }
+
+    /**
+     * Do we want to do anything with this incoming call?
+     *
+     * @param channel the active channel
+     * @return true - do something; false - ignore
+     */
+    private boolean reactToChannel(String channel) {
+        return ChannelUtils.contains(AsteriskPlugin.getDefault().getConfiguration().
+                getMyChannels(), channel);
+    }
+}

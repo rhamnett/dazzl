@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/223/adm/src/org/hamnett/adm/crm
+END
+Crm.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/crm/Crm.java
+END
+messages_fr.properties
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/crm/messages_fr.properties
+END
+Messages.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/crm/Messages.java
+END
+messages.properties
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/crm/messages.properties
+END
+CrmConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/crm/CrmConfiguration.java
+END
+CrmBrowserControl.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/220/adm/src/org/hamnett/adm/crm/CrmBrowserControl.java
+END
+CrmException.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/crm/CrmException.java
+END

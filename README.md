@@ -1,0 +1,1 @@
+Control your LightwaveRF devices with a desktop application which sits in the system tray

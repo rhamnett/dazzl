@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="module_adm" default="compile.module.adm">
+  <dirname property="module.adm.basedir" file="${ant.file.module_adm}"/>
+  
+  <property name="module.jdk.home.adm" value="${project.jdk.home}"/>
+  <property name="module.jdk.classpath.adm" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.adm" value="${compiler.args}"/>
+  
+  <property name="adm.output.dir" value="${module.adm.basedir}/classes"/>
+  <property name="adm.testoutput.dir" value="${module.adm.basedir}/classes"/>
+  
+  <path id="adm.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="adm.module.classpath">
+    <path refid="${module.jdk.classpath.adm}"/>
+    <pathelement location="${module.adm.basedir}/lib/jface.jar"/>
+    <pathelement location="${module.adm.basedir}/lib/osgi.jar"/>
+    <pathelement location="${module.adm.basedir}/lib/runtime.jar"/>
+    <!--<pathelement location="${module.adm.basedir}/lib/swt.jar"/>-->
+    <pathelement location="${module.adm.basedir}/native/swt/gtk-linux/HEAD/swt.jar"/>
+    <pathelement location="${module.adm.basedir}/lib/avetanaBT.jar"/>
+    <pathelement location="${module.adm.basedir}/lib/commons-net-1.4.0.jar"/>
+    <pathelement location="${module.adm.basedir}/lib/commons-logging.jar"/>
+    <pathelement location="${module.adm.basedir}/lib/spring-core.jar"/>
+    <pathelement location="${module.adm.basedir}/lib/spring-context.jar"/>
+    <pathelement location="${module.adm.basedir}/lib/spring-beans.jar"/>
+    <!--<pathelement location="${module.adm.basedir}/lib/asterisk-java-0.2-SNAPSHOT.jar"/>-->
+    <pathelement location="${module.adm.basedir}/lib/asterisk-java-0.3-SNAPSHOT.jar"/>
+    <pathelement location="${module.adm.basedir}/lib/hibernate3.jar"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.adm"/>
+  
+  <patternset id="excluded.from.compilation.adm">
+    <patternset refid="excluded.from.module.adm"/>
+    <patternset refid="compiler.excluded"/>
+  </patternset>
+  
+  <path id="adm.module.sourcepath">
+    <dirset dir="${module.adm.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.adm" depends="compile.module.adm.production,compile.module.adm.tests" description="compile module adm"/>
+  
+  <target name="compile.module.adm.production" description="compile module adm production classes">
+    <mkdir dir="${adm.output.dir}"/>
+    <javac destdir="${adm.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memoryMaximumSize="${compiler.max.memory}" fork="true" compiler="javac1.5">
+      <compilerarg line="${compiler.args.adm}"/>
+      <bootclasspath refid="adm.module.bootclasspath"/>
+      <classpath refid="adm.module.classpath"/>
+      <src refid="adm.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.adm"/>
+    </javac>
+    <copy todir="${adm.output.dir}">
+      <fileset dir="${module.adm.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+        <patternset refid="excluded.from.compilation.adm"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.adm.tests" depends="compile.module.adm.production" description="compile module adm test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.adm" description="cleanup module">
+    <delete dir="${adm.output.dir}"/>
+    <delete dir="${adm.testoutput.dir}"/>
+  </target>
+</project>

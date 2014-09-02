@@ -1,0 +1,65 @@
+/*
+ * This file is part of ADM, the Asterisk Desktop Manager.
+ *
+ * ADM is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * ADM is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with ADM; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+package org.hamnett.adm.crm.gui;
+
+import org.eclipse.jface.preference.BooleanFieldEditor;
+import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.StringFieldEditor;
+import org.eclipse.swt.widgets.Composite;
+import org.hamnett.adm.crm.Crm;
+import org.hamnett.adm.crm.Messages;
+
+public class CrmPreferencePage extends FieldEditorPreferencePage
+{
+    private BooleanFieldEditor enabled;
+    private StringFieldEditor serverAddress;
+    private StringFieldEditor browserPath;
+
+    /**
+     * Creates a new instance
+     */
+    public CrmPreferencePage()
+    {
+        super(Messages.getString("CrmPreferencePage.title"), GRID); //$NON-NLS-1$
+        setDescription(org.hamnett.adm.crm.Messages
+                .getString("CrmPreferencePage.description")); //$NON-NLS-1$
+    }
+
+    protected void createFieldEditors()
+    {
+	Composite p;
+	p = getFieldEditorParent();
+        enabled = new BooleanFieldEditor(
+                Crm.ENABLED_PREFERENCE,
+                Messages.getString("CrmPreferencePage.enabled"), getFieldEditorParent()); //$NON-NLS-1$
+        addField(enabled);
+
+        serverAddress = new StringFieldEditor(
+                Crm.SERVER_ADDRESS_PREFERENCE,
+                Messages.getString("CrmPreferencePage.serverAddress"), getFieldEditorParent()); //$NON-NLS-1$
+		serverAddress.getLabelControl(p).setToolTipText(
+		Messages.getString("CrmPreferencePage.serverAddress.tooltip"));
+        addField(serverAddress);
+
+        browserPath = new StringFieldEditor(
+                Crm.BROWSER_PATH,
+                Messages.getString("CrmPreferencePage.browserPath"), getFieldEditorParent()); //$NON-NLS-1$
+        addField(browserPath);
+
+    }
+}

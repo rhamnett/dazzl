@@ -1,0 +1,4 @@
+2014-09-02 21:05:15,069 DEBUG [main] org.hamnett.adm.Main - Loading application context from plugins.xml
+2014-09-02 21:05:15,192 DEBUG [main] org.hamnett.adm.Main - Starting plugin org.hamnett.adm.lightwaverf.impl.LwrfPlugin
+2014-09-02 21:05:15,192 DEBUG [main] org.hamnett.adm.Main - Initializing System Tray
+2014-09-02 21:05:15,270 DEBUG [main] org.hamnett.adm.Main - Startup completed in 205 ms

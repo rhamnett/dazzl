@@ -1,0 +1,17 @@
+You are required to install the SWT runtime packages:
+http://download.eclipse.org/eclipse/downloads/drops/R-3.1-200506271435/index.php
+
+
+To build with ant:
+
+ant -buildfile adm.xml all
+(you may have to edit the xml files with your own java version)
+
+to fire up:
+
+java -Djava.library.path=/usr/lib
+
+(this is where the libswt-gtk.so is.....or in windows put the dll in c:\windows\system32)
+
+Questions: rick@hamnett.org
+

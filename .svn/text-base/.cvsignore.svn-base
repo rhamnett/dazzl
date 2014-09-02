@@ -1,0 +1,11 @@
+.settings
+target
+.classpath
+.project
+dist
+tmp
+phonebook
+adm.log
+classes
+docs/html
+bin

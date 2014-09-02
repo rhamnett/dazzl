@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/util/uuid
+END
+EthernetAddress.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/util/uuid/EthernetAddress.java
+END
+UUID.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/util/uuid/UUID.java
+END
+UUIDTimer.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/util/uuid/UUIDTimer.java
+END
+UUIDGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/util/uuid/UUIDGenerator.java
+END
+TagURI.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/134/adm/src/org/hamnett/adm/util/uuid/TagURI.java
+END

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+    "/usr/share/sgml/docbook/dtd/4.4/docbookx.dtd" []>
+
+<article lang="en">
+    <articleinfo>
+        <title>Asterisk Desktop Manager</title>
+        <subtitle>User Guide</subtitle>
+        <author>
+            <firstname>Adrien</firstname>
+            <surname>Barilly</surname>
+            <email>adrien.barilly@adm.hamnett.org</email>
+        </author>
+        <abstract>
+            <para>
+                This document will guide the new user along the necessary steps
+                of configuring and running Asterisk Desktop Manager.
+            </para>
+        </abstract>
+    </articleinfo>
+
+    <section id="intro">
+        <title>Introduction</title>
+        <para>
+            Welcome to Asterisk Desktop Manager, the simple, effective, open source application
+            to manage your VoIP telephony!
+        </para>
+        <para>
+            Asterisk Desktop Manager, or <emphasis>ADM</emphasis> for short, is the simplest way 
+            to integrate Voice Over IP to your desktop: quietly sitting in the system tray, ADM
+            watches your phones and allows you to effectively control them in a few clicks. But ADM
+            can do more: you can store your contacts in its integrated phonebook,
+            automatically turn down the music on new calls, connect your Bluetooth phone,
+            or even pop up the browser with more information on who's calling.
+        </para>
+        <para>
+            In this document, we will go through the basic steps of configuring ADM and connecting
+            it to your phones. This is not at all complicated, but, before we go into it, there are
+            a few things you need to know about Asterisk Desktop Manager.
+        </para>
+    </section>
+
+    <section id="howadmworks">
+        <title>How ADM works</title>
+        <para>
+            If you are reading this, you probably already know that your VoIP phones are connected
+            to a PBX, and this PBX is certainly called Asterisk.
+        </para>
+        <para>
+            Asterisk provides an interface for external programs to manage the connected phones;
+            this interface is called the Manager Interface, and it must be enabled in the configuration
+            of Asterisk. Ask the administrator of your PBX to know if this interface is enabled; if you
+            are this administrator, please refer to Asterisk's documentation on how to do this.
+        </para>
+        <para>
+            When launched, ADM will connect to this interface, and then be able to listen for events,
+            like new phone calls, and send commands to the PBX. If you tell ADM how your phone is
+            identified to the PBX, ADM can tell you for example that someone is calling you,
+            or can order the PBX to make a call from your phone to any other number. All of these
+            features, and much more, are packed in one simple application that we are going to
+            configure now.
+        </para>
+    </section>
+
+    <section id="configuring">
+        <title>Configuring ADM</title>
+        <para>
+            Let us first assume that you have downloaded and installed Asterisk Desktop Manager
+            on your workstation. If not, you can find the Linux or Windows packages on
+            <ulink url="http://adm.hamnett.org">http://adm.hamnett.org</ulink> in the
+            <guimenu>Downloads</guimenu> section; pick up the one for your architecture,
+            and install it.
+        </para>
+        <para>
+            When you launch Asterisk Desktop Manager for the first time, a new configuration
+            file will be created, and ADM will ask you to enter some information on your
+            PBX and your phones. Later, to go back to the configuration panel, simply right-click
+            on ADM's tray icon, and in the <guimenu>Configurations</guimenu> submenu, click
+            <guimenuitem>Edit current</guimenuitem>.
+        </para>
+        <para>
+            In this configuration panel you will see several menus on the left; you already guessed
+            that the most important one is <guimenu>Asterisk</guimenu>. Open this menu and choose
+            <guisubmenu>Manager</guisubmenu>: this is where we tell ADM how to connect to the manager
+            interface of Asterisk. You will be asked to enter the address, or host name, of the PBX
+            (forget about the port; it is almost always <parameter class="option">5038</parameter>,
+            the default value). Then, you need to
+            know how to identify to this PBX; ask your PBX administrator for what to put as user name
+            and password.
+        </para>
+        <para>
+            Once ADM knows how to connect to the PBX, the next step is to tell it which phone
+            your are using to make calls. This is done in the <guisubmenu>Extensions</guisubmenu> panel.
+            There, you will have to enter some information about this phone:
+            <itemizedlist>
+                <listitem>
+                    <para>
+                        the source channel of your phone; usually, this is something like
+                        <parameter class="option">SIP/1000</parameter> or <parameter class="option">IAX2/1234</parameter>;
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        the context that is assigned to this phone;
+                    </para>
+                </listitem>
+                <listitem>
+                    <para>
+                        and the priority, which is certainly <parameter class="option">1</parameter>.
+                    </para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <para>
+            Again, your PBX administrator knows all of this, and can tell you exactly what to put
+            in these fields.
+        </para>
+        <para>
+            If you have more than one phone, ADM can also watch them: add their channels to the
+            parameter called <guimenuitem>My Channels</guimenuitem>, and separate each value by a
+            comma ('<parameter>,</parameter>'). <!--This can be very useful in an office, where you would like to turn down
+            the music automatically when one of your collegues is getting a call.-->
+            Don't forget to put your main phone here too.
+        </para>
+        <para>
+            There are many other features that you can configure in ADM. Have a look at the other
+            pages in the configuration panel and play with them a bit. These should be self-explanatory,
+            but you can take a look at <xref linkend="features"/> later for more information.
+        </para>
+    </section>
+
+    <section id="using">
+        <title>Using ADM</title>
+        <para>
+        </para>
+    </section>
+
+    <section id="features">
+        <title>Advanced features</title>
+        <para>
+        </para>
+    </section>
+</article>

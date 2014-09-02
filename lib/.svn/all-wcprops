@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 25
+/svn/!svn/ver/478/adm/lib
+END
+jta.jar
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/134/adm/lib/jta.jar
+END
+runtime.jar
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/134/adm/lib/runtime.jar
+END
+commons-logging.jar
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/134/adm/lib/commons-logging.jar
+END
+asm.jar
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/134/adm/lib/asm.jar
+END
+commons-collections-2.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/134/adm/lib/commons-collections-2.1.1.jar
+END
+asterisk-java.jar
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/478/adm/lib/asterisk-java.jar
+END
+spring-core.jar
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/134/adm/lib/spring-core.jar
+END
+hibernate3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/134/adm/lib/hibernate3.jar
+END
+avetanaBT.jar
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/461/adm/lib/avetanaBT.jar
+END
+jdbc2_0-stdext.jar
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/134/adm/lib/jdbc2_0-stdext.jar
+END
+spring-beans.jar
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/134/adm/lib/spring-beans.jar
+END
+hsqldb.jar
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/134/adm/lib/hsqldb.jar
+END
+dom4j-1.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/134/adm/lib/dom4j-1.6.jar
+END
+commons-net-1.4.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/134/adm/lib/commons-net-1.4.0.jar
+END
+ehcache-1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/134/adm/lib/ehcache-1.1.jar
+END
+osgi.jar
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/134/adm/lib/osgi.jar
+END
+jface.jar
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/134/adm/lib/jface.jar
+END
+cglib-2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/134/adm/lib/cglib-2.1.jar
+END
+log4j-1.2.8.jar
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/134/adm/lib/log4j-1.2.8.jar
+END
+antlr-2.7.5H3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/134/adm/lib/antlr-2.7.5H3.jar
+END
+spring-context.jar
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/134/adm/lib/spring-context.jar
+END
+asm-attrs.jar
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/134/adm/lib/asm-attrs.jar
+END

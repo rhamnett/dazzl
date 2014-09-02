@@ -1,0 +1,12 @@
+BluetoothPreferencePage.title=Bluetooth
+BluetoothPreferencePage.description=\nConfigure incoming call redirect when your bluetooth device is no longer in range\n
+BluetoothPreferencePage.enabled=Enable presence detection
+BluetoothPreferencePage.deviceAddress=Device MAC Addr (no colons):
+BluetoothPreferencePage.redirectExtension=Divert to:
+
+BluetoothDisabledPreferencePage.title=Bluetooth
+BluetoothDisabledPreferencePage.description=\nThe bluetooth redirect plugin has been disabled.\n\nThis is \
+  for one or more of the following reasons:\n\n \
+  - You have no bluetooth support available\n\n \
+  - Your version of Asterisk cannot support call redirects\n\n \
+  - The bluetooth jar cannot be located

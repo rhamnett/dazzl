@@ -17,9 +17,9 @@
  */
 package org.hamnett.adm.bluetooth.impl;
 
-import org.hamnett.adm.bluetooth.BluetoothDevice;
-
 import java.io.Serializable;
+
+import org.hamnett.adm.bluetooth.BluetoothDevice;
 
 public class BluetoothDeviceImpl implements BluetoothDevice, Serializable
 {

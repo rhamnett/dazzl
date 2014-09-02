@@ -17,6 +17,8 @@
  */
 package org.hamnett.adm.gui;
 
+import java.io.IOException;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.eclipse.jface.action.Action;
@@ -25,8 +27,6 @@ import org.eclipse.jface.preference.PreferenceManager;
 import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.swt.widgets.Event;
 import org.hamnett.adm.Main;
-
-import java.io.IOException;
 
 
 public class PreferencesAction extends Action

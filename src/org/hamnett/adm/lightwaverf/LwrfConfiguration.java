@@ -17,7 +17,6 @@
  */
 package org.hamnett.adm.lightwaverf;
 
-import java.util.Collection;
 
 /**
  * Configuration for crm.

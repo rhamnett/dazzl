@@ -17,15 +17,15 @@
  */
 package org.hamnett.adm.gui;
 
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeSet;
+
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.hamnett.adm.Main;
-
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class ConfigurationMenuManager extends MenuManager
 {

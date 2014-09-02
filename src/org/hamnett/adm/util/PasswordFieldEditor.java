@@ -9,8 +9,8 @@ package org.hamnett.adm.util;
  * @author rick
  * @version $Id: PasswordFieldEditor.java,v 1.1 2006-06-15 22:44:23 rick Exp $
  */
-import org.eclipse.jface.util.Assert;
 import org.eclipse.jface.preference.StringFieldEditor;
+import org.eclipse.jface.util.Assert;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;

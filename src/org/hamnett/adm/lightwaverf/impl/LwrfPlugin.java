@@ -30,12 +30,10 @@ import org.eclipse.jface.util.PropertyChangeEvent;
 import org.hamnett.adm.DazzlPlugin;
 import org.hamnett.adm.DependencyNotSatisfiedException;
 import org.hamnett.adm.gui.LightDimAction;
-import org.hamnett.adm.gui.dialog.LightSlider;
 import org.hamnett.adm.lightwaverf.Lwrf;
 import org.hamnett.adm.lightwaverf.LwrfConfiguration;
 import org.hamnett.adm.lightwaverf.Messages;
 import org.hamnett.adm.lightwaverf.gui.LwrfPreferencePage;
-import org.hamnett.adm.util.ChannelUtils;
 
 /**
  * Open a browser window with the user's details (using the callerId in the querystring)

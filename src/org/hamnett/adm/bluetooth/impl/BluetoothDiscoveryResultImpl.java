@@ -17,10 +17,10 @@
  */
 package org.hamnett.adm.bluetooth.impl;
 
-import org.hamnett.adm.bluetooth.BluetoothDiscoveryResult;
-
 import java.io.Serializable;
 import java.util.Collection;
+
+import org.hamnett.adm.bluetooth.BluetoothDiscoveryResult;
 
 public class BluetoothDiscoveryResultImpl
         implements

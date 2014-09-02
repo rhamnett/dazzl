@@ -17,6 +17,10 @@
  */
 package org.hamnett.adm.gui;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.eclipse.jface.action.IAction;
@@ -27,14 +31,16 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.widgets.*;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Tray;
+import org.eclipse.swt.widgets.TrayItem;
 import org.hamnett.adm.Main;
 import org.hamnett.adm.TrayAction;
 import org.hamnett.adm.util.CommonDialogs;
-
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 public class SystemTray {
     private final Log logger = LogFactory.getLog(getClass());

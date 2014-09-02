@@ -17,6 +17,8 @@
  */
 package org.hamnett.adm.bluetooth.impl;
 
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -26,11 +28,14 @@ import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.hamnett.adm.DazzlPlugin;
 import org.hamnett.adm.DependencyNotSatisfiedException;
-import org.hamnett.adm.bluetooth.*;
+import org.hamnett.adm.bluetooth.Bluetooth;
+import org.hamnett.adm.bluetooth.BluetoothConfiguration;
+import org.hamnett.adm.bluetooth.BluetoothDevice;
+import org.hamnett.adm.bluetooth.BluetoothException;
+import org.hamnett.adm.bluetooth.BluetoothPresenceListener;
+import org.hamnett.adm.bluetooth.Messages;
 import org.hamnett.adm.bluetooth.gui.BluetoothDisabledPreferencePage;
 import org.hamnett.adm.bluetooth.gui.BluetoothPreferencePage;
-
-import java.util.List;
 
 public class BluetoothPlugin
         implements

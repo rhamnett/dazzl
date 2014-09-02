@@ -1,24 +1,19 @@
 package org.hamnett.adm.gui;
 
-import java.util.regex.Pattern;
-
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.InputDialog;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.TrayItem;
 import org.hamnett.adm.Main;
 import org.hamnett.adm.TrayAction;
 import org.hamnett.adm.gui.dialog.LightSlider;
 import org.hamnett.adm.lightwaverf.LwrfConfiguration;
 
 import com.Lightwave.LightwaveAPI;
-import com.Lightwave.SendUDP;
 
 public class LightDimAction extends Action implements TrayAction
 	{

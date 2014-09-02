@@ -17,19 +17,26 @@
  */
 package org.hamnett.adm.bluetooth.impl;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.bluetooth.BluetoothStateException;
+import javax.bluetooth.DeviceClass;
+import javax.bluetooth.DiscoveryAgent;
+import javax.bluetooth.DiscoveryListener;
+import javax.bluetooth.LocalDevice;
+import javax.bluetooth.RemoteDevice;
+import javax.bluetooth.ServiceRecord;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hamnett.adm.bluetooth.BluetoothDevice;
 import org.hamnett.adm.bluetooth.BluetoothDiscoveryResult;
 import org.hamnett.adm.bluetooth.BluetoothException;
 import org.hamnett.adm.bluetooth.BluetoothPresenceListener;
-
-import javax.bluetooth.*;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
 
 public class MonitoringThreadImpl extends Thread
         implements

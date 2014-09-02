@@ -17,10 +17,10 @@
  */
 package org.hamnett.adm;
 
+import java.util.List;
+
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferenceManager;
-
-import java.util.List;
 
 public interface DazzlPlugin
 {

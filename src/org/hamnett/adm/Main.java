@@ -17,6 +17,17 @@
  */
 package org.hamnett.adm;
 
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.eclipse.jface.preference.PreferenceDialog;
@@ -25,24 +36,15 @@ import org.eclipse.jface.preference.PreferenceStore;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.hamnett.adm.gui.IdleMonitor;
 import org.hamnett.adm.gui.SystemTray;
-import org.hamnett.adm.util.DazzlThreadPool;
 import org.hamnett.adm.util.CommonDialogs;
 import org.hamnett.adm.util.ConfigFilenameFilter;
-import org.hamnett.adm.util.FileOperations;
+import org.hamnett.adm.util.DazzlThreadPool;
 import org.hamnett.adm.util.uuid.UUIDGenerator;
-import org.osgi.framework.AdminPermission;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.Lightwave.LightwaveAPI;
 import com.Lightwave.ReceiveUDP;
-
-import java.io.File;
-import java.io.FilenameFilter;
-import java.io.IOException;
-import java.util.*;
 
 public class Main {
     private final Log logger = LogFactory.getLog(getClass());

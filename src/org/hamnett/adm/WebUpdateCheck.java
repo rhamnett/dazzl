@@ -17,10 +17,6 @@
  */
 package org.hamnett.adm;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.hamnett.adm.util.CommonDialogs;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -28,6 +24,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.hamnett.adm.util.CommonDialogs;
 
 public class WebUpdateCheck implements Runnable
 {

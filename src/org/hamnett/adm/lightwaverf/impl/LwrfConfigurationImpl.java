@@ -17,9 +17,9 @@
  */
 package org.hamnett.adm.lightwaverf.impl;
 
-import org.hamnett.adm.lightwaverf.LwrfConfiguration;
-
 import java.util.Collection;
+
+import org.hamnett.adm.lightwaverf.LwrfConfiguration;
 
 /**
  * Default implementation of CrmConfiguration.

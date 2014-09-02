@@ -49,11 +49,12 @@ public class YamlParser {
 		String deviceName = "Dining";*/
 		
 		for (int i = 0; i < rooms.size(); i++) {
-			Map<String, ArrayList<String>> room = (LinkedHashMap<String, ArrayList<String>>)rooms.get(i);
+			Map<String, ArrayList> room = (LinkedHashMap<String, ArrayList>)rooms.get(i);
 			ArrayList<String> devices = room.get("device");
 			//ArrayList<String> str =room.get("name");
 			
 			System.out.println("Room: "+(i+1)+" name: "+room.get("name"));
+			foo(room.get("name").toString());
 			for(int d = 0; d < devices.size(); d++) {
 				String device = devices.get(d);
 				//System.out.println(device);
@@ -61,6 +62,10 @@ public class YamlParser {
 			}			
 		}
 		
+	}
+	
+	private static void foo(String s){
+		System.out.println(s);
 	}
 
 }

@@ -57,15 +57,12 @@ public class LightDimAction extends Action implements TrayAction
 	        }
 	      
 	        LightSlider dialog2 = new LightSlider(Main.getShell(), configuration.getBrowserPath());
-	        
+	        lightDialog = dialog2;
+
 	        if (dialog2.open() == Window.OK)
 	        {
 	        	LightwaveAPI lw = new LightwaveAPI();
-	        	if(lightDialog.getValue()==0){
-	        		lw.sendDeviceOnOff(lightDialog.getRoom(), lightDialog.getDevice(), lw.OFF);
-	        	}else{
-	        		lw.sendDeviceDim(lightDialog.getRoom(), lightDialog.getDevice(), lightDialog.getValue());
-	        	}
+	        	lw.sendDeviceDim(lightDialog.getRoom(), lightDialog.getDevice(), lightDialog.getValue());
 	            lightDialog = null;
 	        }
 	        

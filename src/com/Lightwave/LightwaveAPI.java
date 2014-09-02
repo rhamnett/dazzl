@@ -54,7 +54,7 @@ public class LightwaveAPI {
 		sendDeviceDim (1, 3, 25); // Dim Device 3 in Room 1 to 25% dim level
 		littlePause (3500); // Wait to see the result!
 		*/
-		sendDeviceDim (3, 1, 20); // Dim Device 2 in Room 1 to 100% dim level
+		sendDeviceDim (3, 1, 50); // Dim Device 2 in Room 1 to 100% dim level
 		/*littlePause (3500); // Wait to see the result!
 		*/
 		//sendDeviceOnOff (2,1,OFF); // Turn off Device 3 in Room 1 

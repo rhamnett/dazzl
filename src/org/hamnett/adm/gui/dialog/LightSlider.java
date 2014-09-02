@@ -38,8 +38,6 @@ public class LightSlider  extends Dialog{
 	private int device;
 	private String filePath;
 	
-
-
 	public int getRoom() {
 		return room;
 	}
@@ -73,21 +71,17 @@ public class LightSlider  extends Dialog{
 	 * @return
 	 */
 	public int open() {
+
 		Shell parent = getParent();
 
-		
 		File newConfiguration = new File(filePath);
 		InputStream is = null;
 		try {
 			is = new FileInputStream(newConfiguration);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			
 			MessageDialog.openError(parent, "Error", "YAML not found");
 			return -1;			//e.printStackTrace();
 		}
-
-		
 
 		Yaml yaml = new Yaml();
 		@SuppressWarnings("unchecked")
@@ -132,9 +126,6 @@ public class LightSlider  extends Dialog{
 								System.out.println("Room "+room+" Device "+device);
 							}
 						});
-		//TreeItem item2 = new TreeItem(tree, SWT.LEFT);
-		//item2.setText("First item");
-
 
 		for (int i = 0; i < rooms.size(); i++) {
 			Map<String, ArrayList<String>> room = (LinkedHashMap<String, ArrayList<String>>)rooms.get(i);
@@ -195,8 +186,6 @@ public class LightSlider  extends Dialog{
 				value = slider.getSelection();
 				ret = 0;
 				shell.dispose();
-				/*LightwaveAPI lw = new LightwaveAPI();
-	        	lw.sendDeviceDim(3, 1, slider.getSelection());*/
 			}
 
 			@Override
@@ -251,7 +240,7 @@ public class LightSlider  extends Dialog{
 				Label label = new Label(shell, SWT.NONE);
 				label.setText("100%");
 
-		//shell.pack();
+		shell.pack();
 		shell.open();
 		Display display = parent.getDisplay();
 		while (!shell.isDisposed()) {

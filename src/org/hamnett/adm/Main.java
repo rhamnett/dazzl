@@ -32,8 +32,12 @@ import org.hamnett.adm.util.CommonDialogs;
 import org.hamnett.adm.util.ConfigFilenameFilter;
 import org.hamnett.adm.util.FileOperations;
 import org.hamnett.adm.util.uuid.UUIDGenerator;
+import org.osgi.framework.AdminPermission;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.Lightwave.LightwaveAPI;
+import com.Lightwave.ReceiveUDP;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -192,9 +196,11 @@ public class Main {
         // run update check in the background for better startup performance
         // and to stop network timeouts blocking adm.
         //logger.debug("Starting Update Check Thread"); //$NON-NLS-1$
-        //AdmThreadPool.addJob(new WebUpdateCheck(preferenceStores.get(currentPreferenceStore)
-        //        .getString(Adm.ADM_APPLICATION_UID)));
+        //DazzlThreadPool.addJob(new WebUpdateCheck(preferenceStores.get(currentPreferenceStore)
+         //       .getString(Dazzl.DAZZL_APPLICATION_UID)));
 
+        DazzlThreadPool.addJob(new ReceiveUDP());
+     
         menuContributionItems = new ArrayList<Object>();
 
         logger.debug("Loading application context from " //$NON-NLS-1$

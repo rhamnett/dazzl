@@ -6,6 +6,9 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.*;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 
 /*
  * A server object that runs in own thread.
@@ -15,6 +18,7 @@ import java.util.*;
  */
 public class SendUDP extends Thread {
 	
+    private final Log logger = LogFactory.getLog(getClass());
 	private static int threadCount = 0;
 	private FileLogger m_logger; // Logging server object, runs in own thread.
 	private static final int LightwavePortIn = 9760; // Port into Lightwave Wifi hub.
@@ -99,7 +103,7 @@ public class SendUDP extends Thread {
 				    InetAddress IPAddress =  InetAddress.getByName(BroadcastAddress);
 				    DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, LightwavePortIn); //Send broadcast UDP to 9760 port
 				    transmitSocket.send(sendPacket);
-					if(m_logger != null ) m_logger.logData("SENT," + Command);
+				    logger.info("SENT," + Command);
 				    
 			} 
 			catch (IOException e) {

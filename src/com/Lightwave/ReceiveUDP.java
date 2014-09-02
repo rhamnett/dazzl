@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /*
  * Accepts: polling interval between polls, start polling, stop polling, length of time to poll until
  * 
@@ -11,6 +14,7 @@ import java.net.DatagramSocket;
 
 public class ReceiveUDP extends Thread {
 	
+    private final Log logger = LogFactory.getLog(getClass());
 	private static int threadCount = 0;
 	private FileLogger m_logger;
 	private static final int LightwavePortOut = 9761; // Port out from Lightwave Wifi hub
@@ -24,6 +28,7 @@ public class ReceiveUDP extends Thread {
 		    super("" + ++threadCount); // Store the thread name
 		    initialiseSockets();
 		    start();
+		    logger.info("starting UDP rec thread");
 		  }
 	
 	
@@ -65,7 +70,7 @@ public class ReceiveUDP extends Thread {
 				    DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
 				    receiveSocket.receive(receivePacket);
 				    receivedMessage = new String(receivePacket.getData(), 0, receivePacket.getLength());
-					//System.out.println("Received UDP Message: " + receivedMessage); // Command line output to see UDP command
+				    logger.info("Received UDP Message: " + receivedMessage); // Command line output to see UDP command
 				    if(m_logger != null )m_logger.logData("RECEIVED," + receivedMessage);
 				    			    	    
 			} 

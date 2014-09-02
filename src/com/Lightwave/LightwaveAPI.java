@@ -23,11 +23,13 @@ public class LightwaveAPI {
 	
 	public LightwaveAPI() {
 		
-		logger = new FileLogger("LightwaveRF_Test.csv"); //Separate logging thread, log UDP traffic to CSV file
+		//logger = new FileLogger("LightwaveRF_Test.csv"); //Separate logging thread, log UDP traffic to CSV file
 		//server_in = new ReceiveUDP(logger); //Separate UDP receiving server thread
 		server_out = new SendUDP(logger);   //Separate 
 		
 	}
+	
+
 	
 	// Main Entry - Example Commands calling API 
 	public static void main(String[] args) {	

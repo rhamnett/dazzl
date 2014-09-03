@@ -2,7 +2,7 @@
  * Basic logging to text file.  Operation is open, log, close.
  */
 
-package com.Lightwave;
+package com.lightwaverf;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

@@ -1,5 +1,5 @@
 //Java Version - Eddie Pratt - eddie_pratt AT hotmail.com
-package com.Lightwave;
+package com.lightwaverf;
 
 /*
  * Basic API for controlling LightwaveRF Wifi box using UDP commands sent to port 9760 broadcast on 255.255.255.255
@@ -39,8 +39,8 @@ public class LightwaveAPI {
 		server_out = new SendUDP();   //Separate buffered UDP sending server thread
 //		console_input = new Console(server_out); //Simple console server to accept raw UDP commands and send to LWRF wifi box
 		
-		//PollEnergyMeter m_meter = new PollEnergyMeter(server_out, 5000); //Separate energy meter polling thread, delay between polls
-		//m_meter.setPollingPeriod(120000); //Alter polling period during operation (milliseconds)
+		PollEnergyMeter m_meter = new PollEnergyMeter(server_out, 5000); //Separate energy meter polling thread, delay between polls
+		m_meter.setPollingPeriod(1000); //Alter polling period during operation (milliseconds)
 
 		/*
 		 * Example commands
@@ -56,7 +56,7 @@ public class LightwaveAPI {
 		sendDeviceDim (1, 3, 25); // Dim Device 3 in Room 1 to 25% dim level
 		littlePause (3500); // Wait to see the result!
 		*/
-		sendDeviceDim (3, 1, 50); // Dim Device 2 in Room 1 to 100% dim level
+		//sendDeviceDim (3, 1, 50); // Dim Device 2 in Room 1 to 100% dim level
 		/*littlePause (3500); // Wait to see the result!
 		*/
 		//sendDeviceOnOff (2,1,OFF); // Turn off Device 3 in Room 1 

@@ -1,4 +1,4 @@
-package com.Lightwave;
+package com.lightwaverf;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

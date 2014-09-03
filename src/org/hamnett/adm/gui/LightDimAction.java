@@ -13,7 +13,7 @@ import org.hamnett.adm.TrayAction;
 import org.hamnett.adm.gui.dialog.LightSlider;
 import org.hamnett.adm.lightwaverf.LwrfConfiguration;
 
-import com.Lightwave.LightwaveAPI;
+import com.lightwaverf.LightwaveAPI;
 
 public class LightDimAction extends Action implements TrayAction
 	{

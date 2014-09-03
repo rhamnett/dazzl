@@ -44,7 +44,7 @@ import org.hamnett.adm.util.uuid.UUIDGenerator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.Lightwave.ReceiveUDP;
+import com.lightwaverf.ReceiveUDP;
 
 public class Main {
     private final Log logger = LogFactory.getLog(getClass());

@@ -1,4 +1,4 @@
-package com.Lightwave;
+package com.lightwaverf;
 
 /*
  * Separate thread that polls the wireless energy monitor connected to the LightwaveRF wifi box

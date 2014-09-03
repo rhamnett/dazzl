@@ -38,8 +38,8 @@ public class YamlParser {
 		ArrayList rooms = (ArrayList) yamlParsers.get("room");
 		
 		for (int i = 0; i < rooms.size(); i++) {
-			Map room = (LinkedHashMap<String, ArrayList>)rooms.get(i);
-			ArrayList<String> devices = (ArrayList<String>) room.get("device");
+			Map room = (Map<String, ArrayList>)rooms.get(i);
+			ArrayList<String> devices = (ArrayList) room.get("device");
 			
 			System.out.println("Room: "+(i+1)+" name: "+room.get("name"));
 			foo(room.get("name").toString());

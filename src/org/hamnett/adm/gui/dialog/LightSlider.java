@@ -130,7 +130,7 @@ public class LightSlider  extends Dialog{
 		});
 
 		for (int i = 0; i < rooms.size(); i++) {			
-			Map room = (LinkedHashMap<String, ArrayList>)rooms.get(i);
+			Map room = (Map<String, ArrayList>)rooms.get(i);
 			ArrayList<String> devices = (ArrayList<String>) room.get("device");
 			System.out.println("Room: "+i+" name: "+room.get("name"));
 			TreeItem item = new TreeItem(tree, SWT.LEFT);
@@ -142,7 +142,6 @@ public class LightSlider  extends Dialog{
 				subItem.setText(device);
 				subItem.setData((d+1));
 			}	
-			System.out.println("in loop "+i);
 		}
 
 		Label lblOff = new Label(shell, SWT.NULL);

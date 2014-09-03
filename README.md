@@ -3,6 +3,8 @@ dazzl
 
 Dazzl is a cross-platform desktop application for controlling LightwaveRF devices which lives in the system tray. Mac/Windows/Linux
 
+![alt tag](http://i.imgur.com/SSFk9zA.png)
+
 Create a YAML file which looks like this:
 ````
 ---

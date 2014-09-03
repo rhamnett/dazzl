@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -28,6 +29,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Slider;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
+import org.hsqldb.lib.Iterator;
 import org.yaml.snakeyaml.Yaml;
 
 public class LightSlider  extends Dialog{
@@ -37,7 +39,7 @@ public class LightSlider  extends Dialog{
 	private int room;
 	private int device;
 	private String filePath;
-	
+
 	public int getRoom() {
 		return room;
 	}
@@ -54,7 +56,7 @@ public class LightSlider  extends Dialog{
 	public LightSlider(Shell parent) {
 		super(parent);
 	}
-	
+
 	/**
 	 * @param parent
 	 */
@@ -108,38 +110,39 @@ public class LightSlider  extends Dialog{
 		gl.marginRight = 5;
 
 		shell.setLayout(gl);
-		
-		
-				final Tree tree = new Tree(shell, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL| SWT.SINGLE);
-				tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 3, 1));
-				
-						tree.addSelectionListener(new SelectionAdapter() {
-							public void widgetSelected(SelectionEvent e) {
-								TreeItem ti = (TreeItem) e.item;
-								Object dev = ti.getData();
-								Object rm =null;
-								if(ti.getParentItem()!=null){
-									rm = ti.getParentItem().getData();
-								}
-								if(dev instanceof Integer) device = (Integer) dev;
-								if(rm instanceof Integer) room = (Integer) rm;
-								System.out.println("Room "+room+" Device "+device);
-							}
-						});
 
-		for (int i = 0; i < rooms.size(); i++) {
-			Map<String, ArrayList<String>> room = (LinkedHashMap<String, ArrayList<String>>)rooms.get(i);
-			ArrayList<String> devices = room.get("device");
+
+		final Tree tree = new Tree(shell, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL| SWT.SINGLE);
+		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 3, 1));
+
+		tree.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				TreeItem ti = (TreeItem) e.item;
+				Object dev = ti.getData();
+				Object rm =null;
+				if(ti.getParentItem()!=null){
+					rm = ti.getParentItem().getData();
+				}
+				if(dev instanceof Integer) device = (Integer) dev;
+				if(rm instanceof Integer) room = (Integer) rm;
+				System.out.println("Room "+room+" Device "+device);
+			}
+		});
+
+		for (int i = 0; i < rooms.size(); i++) {			
+			Map room = (LinkedHashMap<String, ArrayList>)rooms.get(i);
+			ArrayList<String> devices = (ArrayList<String>) room.get("device");
 			System.out.println("Room: "+i+" name: "+room.get("name"));
 			TreeItem item = new TreeItem(tree, SWT.LEFT);
-			item.setText("R"+(i+1));
+			item.setText(room.get("name").toString());
 			item.setData((i+1));
 			for(int d = 0; d < devices.size(); d++) {
 				String device = devices.get(d);
 				TreeItem subItem = new TreeItem(item, SWT.NONE);
 				subItem.setText(device);
 				subItem.setData((d+1));
-			}			
+			}	
+			System.out.println("in loop "+i);
 		}
 
 		Label lblOff = new Label(shell, SWT.NULL);
@@ -223,11 +226,11 @@ public class LightSlider  extends Dialog{
 
 		shell.addListener(SWT.FocusOut,new Listener() {
 
-	        @Override
-	        public void handleEvent(Event e) {
-	            System.out.println("focused: " + e.text);
-	        }
-	    });
+			@Override
+			public void handleEvent(Event e) {
+				System.out.println("focused: " + e.text);
+			}
+		});
 
 		shell.addListener(SWT.Traverse, new Listener() {
 			public void handleEvent(Event event) {
@@ -235,10 +238,10 @@ public class LightSlider  extends Dialog{
 					event.doit = false;
 			}
 		});
-		
-		
-				Label label = new Label(shell, SWT.NONE);
-				label.setText("100%");
+
+
+		Label label = new Label(shell, SWT.NONE);
+		label.setText("100%");
 
 		shell.pack();
 		shell.open();
@@ -265,8 +268,13 @@ public class LightSlider  extends Dialog{
 	public static void main(String[] args) {
 		Shell shell = new Shell();
 		LightSlider dialog = new LightSlider(shell);
+		dialog.setFilePath("/Users/rick/lightwaverf-config.yml");
 		System.out.println(dialog.open());
 		System.out.println(dialog.getValue());
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
 
 	public int getValue() {

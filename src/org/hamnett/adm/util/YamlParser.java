@@ -33,31 +33,18 @@ public class YamlParser {
 		Yaml yaml = new Yaml();
 
 	    @SuppressWarnings("unchecked")
-	    Map<String, ArrayList> yamlParsers = (Map<String, ArrayList>) yaml
-	            .load(is);
+	    Map<String, ArrayList> yamlParsers = (Map<String, ArrayList>) yaml.load(is);
 	    
 		ArrayList rooms = (ArrayList) yamlParsers.get("room");
 		
-		//room id at end
-		//Map<String, ArrayList<String>> kitchen = (LinkedHashMap<String, ArrayList<String>>)rooms.get(2);
-		//ArrayList<String> devices = kitchen.get("device");
-		//System.out.println(kitchen.get("device"));
-		//System.out.println(devices.get(1));
-
-		/*String roomName = "Kitchen";
-		int roomId = -1;
-		String deviceName = "Dining";*/
-		
 		for (int i = 0; i < rooms.size(); i++) {
-			Map<String, ArrayList> room = (LinkedHashMap<String, ArrayList>)rooms.get(i);
-			ArrayList<String> devices = room.get("device");
-			//ArrayList<String> str =room.get("name");
+			Map room = (LinkedHashMap<String, ArrayList>)rooms.get(i);
+			ArrayList<String> devices = (ArrayList<String>) room.get("device");
 			
 			System.out.println("Room: "+(i+1)+" name: "+room.get("name"));
 			foo(room.get("name").toString());
 			for(int d = 0; d < devices.size(); d++) {
 				String device = devices.get(d);
-				//System.out.println(device);
 				System.out.println((d+1) + " "+device);
 			}			
 		}

@@ -131,7 +131,7 @@ public class LightSlider  extends Dialog{
 
 		for (int i = 0; i < rooms.size(); i++) {			
 			Map room = (Map<String, ArrayList>)rooms.get(i);
-			ArrayList<String> devices = (ArrayList<String>) room.get("device");
+			ArrayList<String> devices = (ArrayList) room.get("device");
 			System.out.println("Room: "+i+" name: "+room.get("name"));
 			TreeItem item = new TreeItem(tree, SWT.LEFT);
 			item.setText(room.get("name").toString());

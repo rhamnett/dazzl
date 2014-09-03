@@ -39,12 +39,12 @@ public class YamlParser {
 		
 		for (int i = 0; i < rooms.size(); i++) {
 			Map room = (Map<String, ArrayList>)rooms.get(i);
-			ArrayList<String> devices = (ArrayList) room.get("device");
+			ArrayList devices = (ArrayList) room.get("device");
 			
 			System.out.println("Room: "+(i+1)+" name: "+room.get("name"));
 			foo(room.get("name").toString());
 			for(int d = 0; d < devices.size(); d++) {
-				String device = devices.get(d);
+				String device = (String) devices.get(d);
 				System.out.println((d+1) + " "+device);
 			}			
 		}

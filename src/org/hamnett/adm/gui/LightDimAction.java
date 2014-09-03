@@ -59,6 +59,8 @@ public class LightDimAction extends Action implements TrayAction
 	        	LightwaveAPI lw = new LightwaveAPI();
 	        	if(lightDialog.getValue()==0){
 	        		lw.sendDeviceOnOff(lightDialog.getRoom(), lightDialog.getDevice(), lw.OFF);
+	        	}else if(lightDialog.getValue()==100){
+	        		lw.sendDeviceOnOff(lightDialog.getRoom(), lightDialog.getDevice(), lw.ON);
 	        	}else{
 	        		lw.sendDeviceDim(lightDialog.getRoom(), lightDialog.getDevice(), lightDialog.getValue());
 	        	}

@@ -20,33 +20,4 @@
 		<nature>org.springframework.ide.eclipse.core.springnature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<filteredResources>
-		<filter>
-			<id>1409698281465</id>
-			<name></name>
-			<type>5</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-*.git*</arguments>
-			</matcher>
-		</filter>
-		<filter>
-			<id>1409698281467</id>
-			<name></name>
-			<type>5</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-.DS_Store</arguments>
-			</matcher>
-		</filter>
-		<filter>
-			<id>1409698281476</id>
-			<name></name>
-			<type>5</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-*.gitignore*</arguments>
-			</matcher>
-		</filter>
-	</filteredResources>
 </projectDescription>

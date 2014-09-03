@@ -22,9 +22,10 @@
 	<classpathentry kind="lib" path="lib/spring-context.jar"/>
 	<classpathentry kind="lib" path="lib/spring-core.jar"/>
 	<classpathentry kind="lib" path="lib/asterisk-java-1.0.0.CI-20120418.214526-881.jar"/>
+	<classpathentry kind="lib" path="lib/snmp4j-2.3.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="native/swt/osx-64/swt.jar"/>
-	<classpathentry kind="lib" path="lib/avetanaBT.jar"/>
 	<classpathentry kind="lib" path="lib/snakeyaml-1.11.jar"/>
+	<classpathentry kind="lib" path="lib/bluecove-2.1.1-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

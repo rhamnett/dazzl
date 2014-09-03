@@ -18,14 +18,14 @@ public class LightwaveAPI {
 	public static final int MaxRooms = 8; // Max number of rooms
 	static ReceiveUDP server_in; // Server for receiving UDP from the wifi box
 	static SendUDP server_out; // Server for buffering and sending UDP from direct commands or polling from meter poller
-	static FileLogger logger; // Logging server
+	//static FileLogger logger; // Logging server
 	//static Console console_input;//  Console server
 	
 	public LightwaveAPI() {
 		
 		//logger = new FileLogger("LightwaveRF_Test.csv"); //Separate logging thread, log UDP traffic to CSV file
 		//server_in = new ReceiveUDP(logger); //Separate UDP receiving server thread
-		server_out = new SendUDP(logger);   //Separate 
+		server_out = new SendUDP();   //Separate 
 		
 	}
 	
@@ -36,7 +36,7 @@ public class LightwaveAPI {
 		
 		//logger = new FileLogger("LightwaveRF_Test.csv"); //Separate logging thread, log UDP traffic to CSV file
 		//server_in = new ReceiveUDP(logger); //Separate UDP receiving server thread
-		server_out = new SendUDP(logger);   //Separate buffered UDP sending server thread
+		server_out = new SendUDP();   //Separate buffered UDP sending server thread
 //		console_input = new Console(server_out); //Simple console server to accept raw UDP commands and send to LWRF wifi box
 		
 		//PollEnergyMeter m_meter = new PollEnergyMeter(server_out, 5000); //Separate energy meter polling thread, delay between polls

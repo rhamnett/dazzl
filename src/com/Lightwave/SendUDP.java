@@ -20,7 +20,7 @@ public class SendUDP extends Thread {
 	
     private final Log logger = LogFactory.getLog(getClass());
 	private static int threadCount = 0;
-	private FileLogger m_logger; // Logging server object, runs in own thread.
+	//private FileLogger m_logger; // Logging server object, runs in own thread.
 	private static final int LightwavePortIn = 9760; // Port into Lightwave Wifi hub.
 	private static final String BroadcastAddress = "255.255.255.255";  // Broadcast UDP address.
 	private static int MessageCount = 0;
@@ -30,9 +30,9 @@ public class SendUDP extends Thread {
 	/*
 	 * Constructor defaults to logging every 30 seconds
 	 */
-	public SendUDP(FileLogger logger) {
+	public SendUDP() {
 		    super("" + ++threadCount); // Store the thread name
-			m_logger = logger;
+			//m_logger = logger;
 			//m_buffer = new LinkedList<String>(); // Create simple queue (FIFO) for buffering UDP commands
 		    initialiseSockets();
 		    start();

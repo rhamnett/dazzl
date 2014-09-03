@@ -125,7 +125,6 @@ public class LightSlider  extends Dialog{
 				}
 				if(dev instanceof Integer) device = (Integer) dev;
 				if(rm instanceof Integer) room = (Integer) rm;
-				System.out.println("Room "+room+" Device "+device);
 			}
 		});
 
@@ -183,7 +182,7 @@ public class LightSlider  extends Dialog{
 
 			@Override
 			public void mouseUp(MouseEvent arg0) {
-				System.out.println(slider.getSelection());
+				//logger.info(slider.getSelection());
 				value = slider.getSelection();
 				ret = 0;
 				shell.dispose();
